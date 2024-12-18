@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "ee43766c-14d2-48d3-9fe5-ea22f35ab0ba",
+		"name": "Codigo 201 Federado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/Federado-nuevo-regulacion~edb26dcb-0ea0-4f47-b49c-4b8bf44685bd/collection/29460625-ee43766c-14d2-48d3-9fe5-ea22f35ab0ba?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Crear Llave 201",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const randomNumber = _.random(1000000000,99999999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"const randomTDI = _.random(100000000098999877,999999999990000999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"const randomCel = _.random(3102040000,3992047071)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Genera un valor aleatorio\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el valor basado en el valor aleatorio\r",
+							"let valuekey;\r",
+							"if (randomValue < 0.2) {\r",
+							"    valuekey = \"ID\";\r",
+							"} else if (randomValue < 0.4) {\r",
+							"    valuekey = \"CEL\";\r",
+							"} else if (randomValue < 0.6) {\r",
+							"    valuekey = \"EMAIL\";\r",
+							"} else if (randomValue < 0.8) {\r",
+							"    valuekey = \"MERCHANTID\";\r",
+							"} else {\r",
+							"    valuekey = \"ALFANUMERIC\";\r",
+							"}\r",
+							"\r",
+							"// Guarda el valor en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomvaluekey\", valuekey);\r",
+							"\r",
+							"// Función para generar una cadena aleatoria de dígitos de longitud especificada\r",
+							"function generateRandomNumericString(length) {\r",
+							"    const charset = '0123456789';  // Conjunto de caracteres numéricos\r",
+							"    let randomString = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        const randomIndex = Math.floor(Math.random() * charset.length);\r",
+							"        randomString += charset[randomIndex];\r",
+							"    }\r",
+							"    return randomString;\r",
+							"}\r",
+							"\r",
+							"// Genera un valor aleatorio de 34 dígitos\r",
+							"const randomNumericValue = generateRandomNumericString(34);\r",
+							"\r",
+							"// Establece el valor aleatorio en una variable\r",
+							"pm.variables.set(\"randomNumericValue\", randomNumericValue);\r",
+							"\r",
+							"// Generar una parte aleatoria para el nombre del correo\r",
+							"function generateRandomString(length) {\r",
+							"    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * characters.length));\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							"\r",
+							"// Configurar el dominio del correo\r",
+							"const domain = 'example.com'; // Cambia este dominio si necesitas otro\r",
+							"const randomLocalPart = generateRandomString(8); // Parte local del correo (antes del @)\r",
+							"\r",
+							"// Generar el correo completo\r",
+							"const randomEmail = `${randomLocalPart}@${domain}`;\r",
+							"\r",
+							"// Guardar el correo en variables de entorno o colección\r",
+							"pm.environment.set('randomVariable', randomEmail);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"// Generar una cadena aleatoria de 5 caracteres\r",
+							"function generateRandomString(length) {\r",
+							"    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * characters.length));\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							"\r",
+							"// Crear la variable\r",
+							"const randomVariable1 = `@${generateRandomString(5)}`;\r",
+							"pm.environment.set('randomVariable1', randomVariable1);\r",
+							"\r",
+							"\r",
+							"\r",
+							"// Generar una cadena de 8 dígitos aleatorios\r",
+							"function generateRandomDigits(length) {\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += Math.floor(Math.random() * 10); // Generar un dígito aleatorio entre 0 y 9\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							"\r",
+							"// Crear la variable con prefijo '00'\r",
+							"const randomVariable2 = `00${generateRandomDigits(8)}`;\r",
+							"pm.environment.set('randomVariable2', randomVariable2);\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asegúrate de que la respuesta está en el formato JSON\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"firstName\": {{firstName}},\r\n    \"secondName\": {{secondName}},\r\n    \"firstLastName\": {{firstLastName}},\r\n    \"secondLastName\": {{secondLastName}},\r\n    \"documentType\": {{documentType}},\r\n    \"documentNumber\": {{documentNumber}},\r\n    \"userType\": {{userType}},\r\n    \"merchantName\": {{merchantName}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n    \"accountNumber\": \"{{randomNumericValue}}\",\r\n    \"entityCode\": {{entityCode}},\r\n    \"signer\":{{signer}}\r\n  },\r\n  \"key\": {\r\n    \"keyType\": {{keyType}},\r\n    \"keyValue\": {{keyValue}},\r\n    \"spbvi\": {{spbvi}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

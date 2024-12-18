@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "abbf9134-15ec-4469-b1f7-2edd1f453579",
+		"name": "Patch codigo 202",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29460625",
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-abbf9134-15ec-4469-b1f7-2edd1f453579?action=share&source=collection_link&creator=29460625"
+	},
+	"item": [
+		{
+			"name": "Actualizar Llave Codigos 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 202\", function () {\r",
+							"    pm.response.to.have.status(202);\r",
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Genera un valor aleatorio entre 0 y 1\r",
+							"let randomValue = Math.random();\r",
+							"\r",
+							"// Determina el estado basado en el valor aleatorio\r",
+							"let status = randomValue < 0.5 ? \"LOCK\" : \"ACTIVE\";\r",
+							"\r",
+							"// Guarda el estado en una variable de entorno o de colección\r",
+							"pm.environment.set(\"randomStatus\", status);\r",
+							"\r",
+							"// Array de posibles valores para accountType\r",
+							"const accountTypes = [\r",
+							"    \"SAVING_ACCOUNT\",\r",
+							"    \"CURRENT_ACCOUNT\",\r",
+							"    \"LOW_DEPOSIT\",\r",
+							"    \"ORDINARY_DEPOSIT\",\r",
+							"    \"INCLUSIVE_LOW_AMOUNT\"\r",
+							"];\r",
+							"\r",
+							"// Seleccionar un valor aleatorio del array\r",
+							"const randomAccountType = accountTypes[Math.floor(Math.random() * accountTypes.length)];\r",
+							"\r",
+							"// Establecer la variable en el entorno de Postman\r",
+							"\r",
+							"//Para tomar cel aleatorio\r",
+							"const randomNumber = _.random(10000000,99999999)\r",
+							"pm.variables.set(\"randomNumber\", randomNumber );\r",
+							"const randomCel = _.random(3102040000,3992047071)\r",
+							"pm.variables.set(\"randomCel\", randomCel );\r",
+							"// Configurar el dominio del correo\r",
+							"const domain = 'example.com'; // Cambia este dominio si necesitas otro\r",
+							"const randomLocalPart = generateRandomString(8); // Parte local del correo (antes del @)\r",
+							" \r",
+							"// Generar el correo completo\r",
+							"const randomEmail = `${randomLocalPart}@${domain}`;\r",
+							" // Guardar el correo en variables de entorno o colección\r",
+							"pm.environment.set('randomEmail', randomEmail);\r",
+							"pm.environment.set(\"accountType\", randomAccountType);\r",
+							"// Generar una cadena aleatoria de 5 caracteres\r",
+							"function generateRandomString(length) {\r",
+							"    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += characters.charAt(Math.floor(Math.random() * characters.length));\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							" \r",
+							"// Crear la variable\r",
+							"const randomVariable1 = `@${generateRandomString(5)}`;\r",
+							"pm.environment.set('randomVariable1', randomVariable1);\r",
+							"\r",
+							"// Generar una cadena de 8 dígitos aleatorios\r",
+							"function generateRandomDigits(length) {\r",
+							"    let result = '';\r",
+							"    for (let i = 0; i < length; i++) {\r",
+							"        result += Math.floor(Math.random() * 10); // Generar un dígito aleatorio entre 0 y 9\r",
+							"    }\r",
+							"    return result;\r",
+							"}\r",
+							" \r",
+							"// Crear la variable con prefijo '00'\r",
+							"const randomVariable2 = `00${generateRandomDigits(8)}`;\r",
+							"pm.environment.set('randomVariable2', randomVariable2);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"key\":{\r\n  \"keyType\": {{keyType}},\r\n  \"keyValue\": {{keyValue}},\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\":{{accountType}},\r\n            \"accountNumber\": {{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/99132999-0183-4bfc-b657-002192a1dba0",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"99132999-0183-4bfc-b657-002192a1dba0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

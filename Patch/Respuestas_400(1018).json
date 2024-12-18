@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "b25fb501-168f-486c-8d63-d16a291bde5a",
+		"name": "Patch codigo 400-1018",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31315694",
+		"_collection_link": "https://warped-rocket-761289.postman.co/workspace/DIRECTORIO-FEDERADO-MARCAS-DE-T~4750160b-239b-41c4-ba50-3aa6b2288dc6/collection/31315694-b25fb501-168f-486c-8d63-d16a291bde5a?action=share&source=collection_link&creator=31315694"
+	},
+	"item": [
+		{
+			"name": "Actualizar Llave Codigos 400-1018",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"// captura la variable code es igual a 1018\r",
+							"const responseJson = pm.response.json();\r",
+							"const code = responseJson.errors[0].code;\r",
+							"const codenum = Number(code);\r",
+							"pm.environment.set(\"codenum\", codenum);\r",
+							"\r",
+							"pm.test(\"La variable de entorno 'code' es 1018\", function () {\r",
+							"  pm.expect(codenum).to.equal(1018); // Verifica si la variable es igual a 400\r",
+							"});\r",
+							"// Imprimir el comentario en la consola de Newman\r",
+							"console.log(\"Comentario del caso de prueba: \", pm.iterationData.get(\"comentario\"));\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "message-uuid",
+						"value": "{{message-uuid}}",
+						"type": "text"
+					},
+					{
+						"key": "request-app-id",
+						"value": "{{request-app-id}}",
+						"type": "text"
+					},
+					{
+						"key": "customer-request-dt",
+						"value": "{{customer-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "entity-request-dt",
+						"value": "{{entity-request-dt}}",
+						"type": "text"
+					},
+					{
+						"key": "transaction-reference",
+						"value": "{{transaction-reference}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"key\":{\r\n  \"status\": {{status}},\r\n  \"spbvi\": {{spbvi}}\r\n  },\r\n  \"account\": {\r\n    \"accountType\": {{accountType}},\r\n            \"accountNumber\":{{accountNumber}},\r\n            \"signer\": {{signer}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/{{id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"fd",
+						"entities",
+						"{{entidad}}",
+						"keys",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
