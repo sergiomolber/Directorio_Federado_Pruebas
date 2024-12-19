@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "abbf9134-15ec-4469-b1f7-2edd1f453579",
+		"_postman_id": "fa27b3c7-60f0-41c9-9bc6-230842d650b0",
 		"name": "Patch codigo 202",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/ULTIMO-FEDERADO-REGULACION~0d3103fa-a7a9-4c97-9188-b83d2120c143/collection/29460625-abbf9134-15ec-4469-b1f7-2edd1f453579?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/para-federado-pruebas~cb5b8ed6-2486-47ef-9a5a-c2d37ac7c26a/collection/29460625-fa27b3c7-60f0-41c9-9bc6-230842d650b0?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -148,7 +148,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/99132999-0183-4bfc-b657-002192a1dba0",
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/ad6fe01c-3a66-4d19-ae9a-9473ddcc9428",
 					"host": [
 						"{{base-url}}"
 					],
@@ -157,7 +157,7 @@
 						"entities",
 						"{{entidad}}",
 						"keys",
-						"99132999-0183-4bfc-b657-002192a1dba0"
+						"ad6fe01c-3a66-4d19-ae9a-9473ddcc9428"
 					]
 				}
 			},
