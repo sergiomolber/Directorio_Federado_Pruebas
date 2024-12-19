@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "0c81f478-8cbc-49ef-a6cb-f2640ca64422",
+		"_postman_id": "fc0582b0-1f1b-42a8-9867-b16fbedaa587",
 		"name": "Patch codigo Sin enviar campos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29460625",
-		"_collection_link": "https://red-satellite-829132.postman.co/workspace/prueba-federado~4f27235c-04df-4b6c-81ae-7ca48b4eeddb/collection/29460625-0c81f478-8cbc-49ef-a6cb-f2640ca64422?action=share&source=collection_link&creator=29460625"
+		"_collection_link": "https://red-satellite-829132.postman.co/workspace/prueba-federado~4f27235c-04df-4b6c-81ae-7ca48b4eeddb/collection/29460625-fc0582b0-1f1b-42a8-9867-b16fbedaa587?action=share&source=collection_link&creator=29460625"
 	},
 	"item": [
 		{
@@ -1935,7 +1935,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/b45ebd50-d1b1-412e-ab54-b2d0f6e15ab0",
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/ef187f45-f2c6-467c-b58f-61a56dfa31de",
 					"host": [
 						"{{base-url}}"
 					],
@@ -1944,7 +1944,7 @@
 						"entities",
 						"{{entidad}}",
 						"keys",
-						"b45ebd50-d1b1-412e-ab54-b2d0f6e15ab0"
+						"ef187f45-f2c6-467c-b58f-61a56dfa31de"
 					]
 				}
 			},
@@ -2131,7 +2131,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/46d7ed8f-3ff3-47c1-8ae4-988b9e9025eb",
+					"raw": "{{base-url}}/fd/entities/{{entidad}}/keys/6f079136-c634-4a7a-b5a1-41df83873856",
 					"host": [
 						"{{base-url}}"
 					],
@@ -2140,7 +2140,7 @@
 						"entities",
 						"{{entidad}}",
 						"keys",
-						"46d7ed8f-3ff3-47c1-8ae4-988b9e9025eb"
+						"6f079136-c634-4a7a-b5a1-41df83873856"
 					]
 				}
 			},
